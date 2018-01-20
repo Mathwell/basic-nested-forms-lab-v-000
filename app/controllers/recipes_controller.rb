@@ -12,6 +12,8 @@ class RecipesController < ApplicationController
   end
 
   def create
+    Recipe.create(recipe_params)
+    redirect_to recipes_path
   end
 
   def recipe_params
@@ -19,7 +21,7 @@ class RecipesController < ApplicationController
   :title,
   ingredient_attributes: [
     :name,
-    :quantity    
+    :quantity
   ]
 )
 end
